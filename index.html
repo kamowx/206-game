@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<style>
+    body {
+        background: linear-gradient(135deg, #667eea);
+        min-height: 100vh;
+        margin: 0;
+    }
+
+    .card {
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    }
+
+    ul {
+        min-height: 120px;
+        background: #fff;
+        border-radius: 10px;
+        padding: 15px;
+        list-style: none;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        color: black;
+    }
+
+    h3 {
+        text-align: center;
+    }
+
+    .player-title {
+        color: white;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    /* Куб */
+    .scene {
+        width: 120px;
+        height: 120px;
+        perspective: 600px;
+        margin: 20px auto;
+    }
+
+    .cube {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transform-style: preserve-3d;
+        transition: transform 1.5s ease;
+    }
+
+    .face {
+        position: absolute;
+        width: 120px;
+        height: 120px;
+        background: white;
+        border: 2px solid #ddd;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        font-weight: bold;
+        border-radius: 10px;
+    }
+
+    .front  { transform: translateZ(60px); }
+    .back   { transform: rotateY(180deg) translateZ(60px); }
+    .left   { transform: rotateY(-90deg) translateZ(60px); }
+    .right  { transform: rotateY(90deg) translateZ(60px); }
+    .top    { transform: rotateX(90deg) translateZ(60px); }
+    .bottom { transform: rotateX(-90deg) translateZ(60px); }
+
+    .play-btn {
+        display: block;
+        margin: 20px auto;
+        width: 200px;
+    }
+</style>
+
+<div class="container py-5">
+
+    <div class="row justify-content-center text-center">
+
+        <!-- Player 1 -->
+        <div class="col-md-4">
+            <h5 class="player-title">Player 1</h5>
+
+            <ul id="todoList1">
+                <li>Name1</li>
+            </ul>
+
+            <div class="scene">
+                <div class="cube" >
+                    <div class="face front">3</div>
+                    <div class="face back">2</div>
+                    <div class="face left">4</div>
+                    <div class="face right">1</div>
+                    <div class="face top">6</div>
+                    <div class="face bottom">5</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Player 2 -->
+        <div class="col-md-4">
+            <h5 class="player-title">Player 2</h5>
+
+            <ul id="todoList2">
+                <li>Name2</li>
+            </ul>
+
+            <div class="scene">
+                <div class="cube">
+                    <div class="face front">6</div>
+                    <div class="face back">4</div>
+                    <div class="face left">3</div>
+                    <div class="face right">2</div>
+                    <div class="face top">1</div>
+                    <div class="face bottom">5</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Кнопка -->
+    <button id="rotateY" class="btn btn-warning play-btn">
+         Play
+    </button>
+
+    
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-header bg-dark text-white">
+                    <h3>Players</h3>
+                </div>
+                <div class="card-body">
+                    <input placeholder="Name1" id="inp1" type="text" class="form-control mb-3">
+                    <input placeholder="Name2" id="inp2" type="text" class="form-control mb-3">
+                    <button id="addBtn" class="btn btn-primary w-100">
+                        Add Player
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+
+</html>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="script.js"></script>
